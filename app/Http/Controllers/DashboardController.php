@@ -24,7 +24,7 @@ class DashboardController extends Controller
     public function getIndex()
     {
         // Show the page
-        if (Auth::user()->hasAccess('admin')) {
+        if (Auth::user()->hasAccess('admin') || Auth::user()->hasAccess('dashboard')) {
 
             $asset_stats=null;
 

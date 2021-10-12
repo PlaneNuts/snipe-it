@@ -164,7 +164,7 @@ final class Company extends SnipeModel
 
     public static function getIdForUser($unescaped_input)
     {
-        if (!static::isFullMultipleCompanySupportEnabled() || Auth::user()->isSuperUser()) {
+        if (!static::isFullMultipleCompanySupportEnabled() || Auth::user()->isSuperUser() || Auth::user()->isSuperViewer()) {
             return static::getIdFromInput($unescaped_input);
         } else {
             return static::getIdForCurrentUser($unescaped_input);
@@ -174,7 +174,7 @@ final class Company extends SnipeModel
     public static function scopeCompanyables($query, $column = 'company_id', $table_name = null )
     {
         // If not logged in and hitting this, assume we are on the command line and don't scope?'
-        if (!static::isFullMultipleCompanySupportEnabled() || (Auth::check() && Auth::user()->isSuperUser()) || (!Auth::check())) {
+        if (!static::isFullMultipleCompanySupportEnabled() || (Auth::check() && Auth::user()->isSuperUser()) || (Auth::check() && Auth::user()->isSuperViewer()) || (!Auth::check())) {
             return $query;
         } else {
             return static::scopeCompanyablesDirectly($query, $column, $table_name);
@@ -185,7 +185,7 @@ final class Company extends SnipeModel
     {
         if (count($companyable_names) == 0) {
             throw new Exception('No Companyable Children to scope');
-        } elseif (!static::isFullMultipleCompanySupportEnabled() || (Auth::check() && Auth::user()->isSuperUser())) {
+        } elseif (!static::isFullMultipleCompanySupportEnabled() || (Auth::check() && Auth::user()->isSuperUser()) || (Auth::check() && Auth::user()->isSuperViewer())) {
             return $query;
         } else {
             $f = function ($q) {

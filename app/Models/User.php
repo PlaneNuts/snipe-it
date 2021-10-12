@@ -180,6 +180,18 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
         return $this->checkPermissionSection('superuser');
     }
 
+     /**
+     * Checks if the user is a SuperViewer
+     *
+     * @author T.Eaton
+     * @since [v5.20]
+     * @return boolean
+     */
+    public function isSuperViewer()
+    {
+        return $this->checkPermissionSection('superviewer');
+    }
+
 
     /**
      * Establishes the user -> company relationship

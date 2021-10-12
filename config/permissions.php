@@ -18,11 +18,29 @@ return array(
         ),
     ),
 
+    'Global Viewer' => array(
+        array(
+            'permission' => 'superviewer',
+            'label'      => '',
+            'note'       => 'Determines whether the user has full access to view all assets. ',
+            'display'    => true,
+        ),
+    ),
+
     'Admin' => array(
         array(
             'permission' => 'admin',
             'label'      => '',
             'note'       => 'Determines whether the user has access to most aspects of the admin. ',
+            'display'    => true,
+        )
+    ),
+
+    'Dashboard' => array(
+        array(
+            'permission' => 'dashboard',
+            'label'      => '',
+            'note'       => 'Determines whether the Dashboard is displayed to the user. Otherwise the they see their checked-out assets ',
             'display'    => true,
         )
     ),
