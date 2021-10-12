@@ -181,10 +181,10 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
     }
 
      /**
-     * Checks if the user is a SuperUser
+     * Checks if the user is a SuperViewer
      *
      * @author T.Eaton
-     * @since [v5.20 Custom]
+     * @since [v5.20]
      * @return boolean
      */
     public function isSuperViewer()
