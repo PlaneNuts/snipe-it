@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\ImageUploadRequest;
+use App\Models\Company;
 use App\Models\Location;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -71,6 +72,7 @@ class LocationsController extends Controller
         $location = new Location();
         $location->name             = $request->input('name');
         $location->parent_id        = $request->input('parent_id', null);
+        $location->company_id       = $request->input('company_id', null);
         $location->currency         = $request->input('currency', '$');
         $location->address          = $request->input('address');
         $location->address2         = $request->input('address2');
@@ -136,6 +138,7 @@ class LocationsController extends Controller
         // Update the location data
         $location->name         = $request->input('name');
         $location->parent_id    = $request->input('parent_id', null);
+        $location->company_id   = $request->input('company_id', null);
         $location->currency     = $request->input('currency', '$');
         $location->address      = $request->input('address');
         $location->address2     = $request->input('address2');

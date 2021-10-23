@@ -28,7 +28,8 @@ class Location extends SnipeModel
         'address2'      => 'max:80|nullable',
         'zip'           => 'min:3|max:10|nullable',
         'manager_id'    => 'exists:users,id|nullable',
-        'parent_id'     => 'non_circular:locations,id'
+        'parent_id'     => 'non_circular:locations,id',
+        'company_id'    => 'integer|nullable'
     );
 
     protected $casts = [
@@ -55,6 +56,7 @@ class Location extends SnipeModel
      */
     protected $fillable = [
         'name',
+        'company_id',
         'parent_id',
         'address',
         'address2',
@@ -84,7 +86,8 @@ class Location extends SnipeModel
      * @var array
      */
     protected $searchableRelations = [
-      'parent' => ['name']
+      'parent'   => ['name'],
+      'company'  => ['name']
     ];
 
     public function isDeletable()
@@ -137,6 +140,11 @@ class Location extends SnipeModel
         return $this->belongsTo('\App\Models\User', 'manager_id');
     }
 
+    public function company()
+    {
+        return $this->belongsTo('\App\Models\Company', 'company_id');
+    }
+
     public function children() {
         return $this->hasMany('\App\Models\Location','parent_id')
             ->with('children');
@@ -184,7 +192,18 @@ class Location extends SnipeModel
         return $results;
     }
 
-
+    /**
+    * Query builder scope to order on company
+    *
+    * @param  \Illuminate\Database\Query\Builder  $query  Query builder instance
+    * @param  string                              $order       Order
+    *
+    * @return \Illuminate\Database\Query\Builder          Modified query builder
+    */
+    public function scopeOrderCompany($query, $order)
+    {
+        return $query->leftJoin('companies', 'locations.company_id', '=', 'companies.id')->orderBy('companies.name', $order);
+    }
 
 
     /**
