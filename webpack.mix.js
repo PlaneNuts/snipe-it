@@ -130,6 +130,7 @@ mix
             './node_modules/xlsx/dist/xlsx.core.min.js',
             './node_modules/tableexport.jquery.plugin/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js',
             './node_modules/bootstrap-table/dist/extensions/sticky-header/bootstrap-table-sticky-header.js',
+            './node_modules/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.js',
             './node_modules/bootstrap-table/dist/extensions/toolbar/bootstrap-table-toolbar.js'
         ],
         'public/js/dist/bootstrap-table.js'

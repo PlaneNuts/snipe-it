@@ -41,6 +41,7 @@ class AssetPresenter extends Presenter
                 'sortable' => true,
                 'title' => trans('admin/hardware/form.name'),
                 'visible' => true,
+                'filterType' => "input",
                 'formatter' => 'hardwareLinkFormatter',
             ], [
                 'field' => 'image',
