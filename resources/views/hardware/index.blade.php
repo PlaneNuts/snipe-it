@@ -90,7 +90,6 @@
                 data-advanced-search="true"
                 data-click-to-select="true"
                 data-filter-control="true"
-                data-show-search-clear-button="true"
                 data-columns="{{ \App\Presenters\AssetPresenter::dataTableLayout() }}"
                 data-cookie-id-table="assetsListingTable"
                 data-pagination="true"

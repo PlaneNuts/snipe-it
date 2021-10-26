@@ -77,6 +77,7 @@ mix.less('./resources/assets/less/skins/skin-orange.less', 'css/dist/skins', './
 mix.combine(
     [
         './node_modules/bootstrap-table/dist/bootstrap-table.css',
+        './node_modules/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.css',
         './node_modules/bootstrap-table/dist/extensions/sticky-header/bootstrap-table-sticky-header.css'
     ],
     'public/css/dist/bootstrap-table.css'
