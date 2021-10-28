@@ -68,6 +68,8 @@
             },
             icons: {
                 advancedSearchIcon: 'fas fa-search-plus',
+                filterControlSwitchHide: 'fa-toilet-paper',
+                filterControlSwitchShow: 'fa-toilet-paper',
                 paginationSwitchDown: 'fa-caret-square-o-down',
                 paginationSwitchUp: 'fa-caret-square-o-up',
                 columns: 'fa-columns',
