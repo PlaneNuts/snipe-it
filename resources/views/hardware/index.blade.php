@@ -97,7 +97,7 @@
                 data-cookie-id-table="assetsListingTable"
                 data-pagination="true"
                 data-id-table="assetsListingTable"
-                data-search="true"
+                data-search="false"
                 data-side-pagination="server"
                 data-show-columns="true"
                 data-show-export="true"
