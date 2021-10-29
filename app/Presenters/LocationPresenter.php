@@ -26,6 +26,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'name',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('admin/locations/table.name'),
                 'visible' => true,
@@ -34,6 +35,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'image',
                 'searchable' => false,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' => trans('general.image'),
@@ -43,6 +45,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'parent',
                 'searchable' => false,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' => trans('admin/locations/table.parent'),
@@ -77,6 +80,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'currency',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('general.currency'),
@@ -85,6 +89,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'address',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.address'),
@@ -93,6 +98,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'city',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.city'),
@@ -101,6 +107,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'state',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.state'),
@@ -109,6 +116,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'zip',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.zip'),
@@ -117,6 +125,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'country',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.country'),
@@ -125,6 +134,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'ldap_ou',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' =>  trans('admin/locations/table.ldap_ou'),
@@ -143,6 +153,7 @@ class LocationPresenter extends Presenter
             [
                 'field' => 'created_at',
                 'searchable' => true,
+                'filterControl' => 'datepicker',
                 'sortable' => true,
                 'switchable' => true,
                 'title' => trans('general.created_at'),

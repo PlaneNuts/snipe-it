@@ -32,6 +32,7 @@ class AccessoryPresenter extends Presenter
             ], [
                 'field' => 'company',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' => trans('admin/companies/table.title'),
@@ -40,30 +41,35 @@ class AccessoryPresenter extends Presenter
             ], [
                 'field' => 'name',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('general.name'),
                 'formatter' => 'accessoriesLinkFormatter',
             ], [
                 'field' => 'category',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('admin/accessories/general.accessory_category'),
                 'formatter' => 'categoriesLinkObjFormatter',
             ], [
                 'field' => 'model_number',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('admin/models/table.modelnumber'),
                 'formatter' => 'accessoriesLinkFormatter',
             ], [
                 'field' => 'manufacturer',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('general.manufacturer'),
                 'formatter' => 'manufacturersLinkObjFormatter',
             ], [
                 'field' => 'supplier',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'switchable' => true,
                 'title' => trans('general.supplier'),
@@ -72,6 +78,7 @@ class AccessoryPresenter extends Presenter
             ], [
                 'field' => 'location',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('general.location'),
                 'formatter' => 'locationsLinkObjFormatter',
@@ -93,6 +100,7 @@ class AccessoryPresenter extends Presenter
             ], [
                 'field' => 'purchase_date',
                 'searchable' => true,
+                'filterControl' => 'datepicker',
                 'sortable' => true,
                 'visible' => false,
                 'title' => trans('general.purchase_date'),
@@ -100,12 +108,14 @@ class AccessoryPresenter extends Presenter
             ], [
                 'field' => 'purchase_cost',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'title' => trans('general.purchase_cost'),
                 'footerFormatter' => 'sumFormatter',
             ], [
                 'field' => 'order_number',
                 'searchable' => true,
+                'filterControl' => 'input',
                 'sortable' => true,
                 'visible' => false,
                 'title' => trans('general.order_number'),

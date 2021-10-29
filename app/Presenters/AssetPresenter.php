@@ -149,7 +149,8 @@ class AssetPresenter extends Presenter
                 'formatter' => 'suppliersLinkObjFormatter',
             ], [
                 'field' => 'purchase_date',
-                'searchable' => false,
+                'searchable' => true,
+                'filterControl' => 'datepicker',
                 'sortable' => true,
                 'visible' => false,
                 'title' => trans('general.purchase_date'),

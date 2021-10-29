@@ -23,6 +23,10 @@
         <div class="table-responsive">
 
             <table
+                data-filter-control-visible="false"
+                data-filter-control="true"
+                data-show-filter-control-switch="true"
+                data-show-search-clear-button="true"
                 data-columns="{{ \App\Presenters\AccessoryPresenter::dataTableLayout() }}"
                 data-cookie-id-table="accessoriesTable"
                 data-pagination="true"

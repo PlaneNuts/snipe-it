@@ -21,6 +21,10 @@
     <div class="box box-default">
       <div class="box-body">
         <table
+                data-filter-control-visible="false"
+                data-filter-control="true"
+                data-show-filter-control-switch="true"
+                data-show-search-clear-button="true"
                 data-columns="{{ \App\Presenters\ConsumablePresenter::dataTableLayout() }}"
                 data-cookie-id-table="consumablesTable"
                 data-pagination="true"

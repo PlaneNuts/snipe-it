@@ -25,6 +25,10 @@
       <div class="box-body">
 
           <table
+              data-filter-control-visible="false"
+              data-filter-control="true"
+              data-show-filter-control-switch="true"
+              data-show-search-clear-button="true"
               data-columns="{{ \App\Presenters\LicensePresenter::dataTableLayout() }}"
               data-cookie-id-table="licensesTable"
               data-pagination="true"
