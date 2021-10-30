@@ -332,7 +332,16 @@ class AssetsController extends Controller
         $serial              = $request->input('serials');
         $asset->name         = $request->input('name');
         $asset->serial       = $serial[1];
-        $asset->company_id   = Company::getIdForCurrentUser($request->input('company_id'));
+
+        //Update the company of an asset when the location is changed
+        if($request->input('rtd_location_id')){
+            $target = Location::find(request('rtd_location_id'));
+            $asset->company_id = (($target) && (isset($target->company_id))) ? $target->company_id: '';
+        }
+        else{
+            $asset->company_id   = Company::getIdForCurrentUser($request->input('company_id'));
+        }
+
         $asset->model_id     = $request->input('model_id');
         $asset->order_number = $request->input('order_number');
         $asset->asset_tag    = $asset_tag[1];
