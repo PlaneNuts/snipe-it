@@ -54,6 +54,10 @@ class LocationsTransformer
                     'id' => (int) $location->parent->id,
                     'name'=> e($location->parent->name)
                 ] : null,
+                'company'   => ($location->company) ? [
+                    'id' => (int) $location->company->id,
+                    'name' => e($location->company->name)
+                ] : null,
                 'manager' => ($location->manager) ? (new UsersTransformer)->transformUser($location->manager) : null,
 
 

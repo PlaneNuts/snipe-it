@@ -26,6 +26,15 @@ class LocationPresenter extends Presenter
                 "visible" => false
             ],
             [
+                "field" => "company",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('admin/companies/table.title'),
+                "visible" => false,
+                "formatter" => "companiesLinkObjFormatter"
+            ],
+            [
                 "field" => "name",
                 "searchable" => true,
                 "sortable" => true,

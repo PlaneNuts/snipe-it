@@ -580,6 +580,14 @@
         }
     }
 
+    function locationCompanyObjFilterFormatter(value, row) {
+        if (value) {
+            return '<a href="{{ url('/') }}/locations/?company_id=' + row.id + '"> ' + value + '</a>';
+        } else {
+            return value;
+        }
+    }
+
     function employeeNumFormatter(value, row) {
 
         if ((row) && (row.assigned_to) && ((row.assigned_to.employee_number))) {

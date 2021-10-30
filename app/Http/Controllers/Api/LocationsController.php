@@ -7,6 +7,7 @@ use App\Http\Requests\ImageUploadRequest;
 use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
 use App\Models\Location;
+use App\Models\Company;
 use App\Http\Transformers\LocationsTransformer;
 use App\Http\Transformers\SelectlistTransformer;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -39,6 +40,7 @@ class LocationsController extends Controller
             'locations.zip',
             'locations.country',
             'locations.parent_id',
+            'locations.company_id',
             'locations.manager_id',
             'locations.created_at',
             'locations.updated_at',
@@ -124,6 +126,7 @@ class LocationsController extends Controller
                 'locations.state',
                 'locations.zip',
                 'locations.country',
+                'locations.company_id',
                 'locations.parent_id',
                 'locations.manager_id',
                 'locations.created_at',
@@ -227,6 +230,7 @@ class LocationsController extends Controller
             'locations.id',
             'locations.name',
             'locations.parent_id',
+            'locations.company_id',
             'locations.image',
         ]);
 
