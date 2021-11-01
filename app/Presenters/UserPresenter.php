@@ -47,6 +47,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "company",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/companies/table.title'),
@@ -56,6 +57,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "name",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/users/table.name'),
                 "visible" => true,
@@ -64,6 +66,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "jobtitle",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.title'),
@@ -73,6 +76,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "email",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.email'),
@@ -82,6 +86,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "phone",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.phone'),
@@ -91,6 +96,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "address",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.address'),
@@ -99,6 +105,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "city",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.city'),
@@ -107,6 +114,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "state",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.state'),
@@ -115,6 +123,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "country",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.country'),
@@ -123,6 +132,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "zip",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.zip'),
@@ -131,6 +141,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "username",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.username'),
@@ -140,6 +151,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "employee_num",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.employee_num'),
@@ -148,6 +160,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "department",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.department'),
@@ -157,6 +170,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "location",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.location'),
@@ -166,6 +180,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "manager",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/users/table.manager'),
                 "visible" => true,
@@ -211,6 +226,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "notes",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.notes'),
@@ -264,6 +280,7 @@ class UserPresenter extends Presenter
             [
                 "field" => "created_at",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.created_at'),

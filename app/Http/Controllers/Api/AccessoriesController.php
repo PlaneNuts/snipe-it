@@ -43,11 +43,27 @@ class AccessoriesController extends Controller
             ];
 
 
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
+
         $accessories = Accessory::select('accessories.*')->with('category', 'company', 'manufacturer', 'users', 'location', 'supplier');
 
-        if ($request->filled('search')) {
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $accessories = $accessories->ByFilter($filter);
+        } elseif ($request->filled('search')) {
             $accessories = $accessories->TextSearch($request->input('search'));
         }
+
+       /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            54-58 to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $accessories = $accessories->TextSearch($request->input('search'));
+            }
+        */
 
         if ($request->filled('company_id')) {
             $accessories->where('company_id','=',$request->input('company_id'));

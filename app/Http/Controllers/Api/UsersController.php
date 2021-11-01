@@ -68,6 +68,11 @@ class UsersController extends Controller
             ->withCount('assets as assets_count','licenses as licenses_count','accessories as accessories_count','consumables as consumables_count');
         $users = Company::scopeCompanyables($users);
 
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
 
         if (($request->filled('deleted')) && ($request->input('deleted')=='true')) {
             $users = $users->onlyTrashed();
@@ -131,9 +136,19 @@ class UsersController extends Controller
             $users = $users->where('users.manager_id','=',$request->input('manager_id'));
         }
 
-        if ($request->filled('search')) {
-            $users = $users->TextSearch($request->input('search'));
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $users->ByFilter($filter);
+        } elseif ($request->filled('search')) {
+            $users->TextSearch($request->input('search'));
         }
+
+
+       /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            140-144 to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $users = $users->TextSearch($request->input('search'));
+        } */
 
         $order = $request->input('order') === 'asc' ? 'asc' : 'desc';
         $offset = (($users) && (request('offset') > $users->count())) ? 0 : request('offset', 0);

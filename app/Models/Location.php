@@ -232,4 +232,41 @@ class Location extends SnipeModel
     {
         return $query->leftJoin('users as location_user', 'locations.manager_id', '=', 'location_user.id')->orderBy('location_user.first_name', $order)->orderBy('location_user.last_name', $order);
     }
+
+    /**
+     * Query builder scope to search on text filters for complex Bootstrap Tables API
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query  Query builder instance
+     * @param  text   $filter   JSON array of search keys and terms
+     *
+     * @return \Illuminate\Database\Query\Builder          Modified query builder
+     */
+    public function scopeByFilter($query, $filter)
+    {
+        return $query->where(function ($query) use ($filter) {
+            foreach ($filter as $fieldname => $search_val) {
+
+                if ($fieldname == 'company') {
+                    $query->whereHas('company', function ($query) use ($search_val) {
+                        $query->where('companies.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'manager') {
+                    $query->whereHas('manager', function ($query) use ($search_val) {
+                        $query->where('first_name', 'LIKE', '%'.$search_val.'%')
+                              ->orWhere('last_name', 'LIKE', '%'.$search_val.'%')
+                              ->orWhereRaw('CONCAT('.DB::getTablePrefix().'users.first_name," ",'.DB::getTablePrefix().'users.last_name) LIKE ?', ["%$search_val%"]);
+                    });
+                }
+                elseif ($fieldname == 'parent') {
+                    $query->whereHas('parent', function ($query) use ($search_val) {
+                        $query->where('locations.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                else{
+                $query->where('locations.'.$fieldname, 'LIKE', '%' . $search_val . '%');
+                }
+            }
+        });
+    }
 }

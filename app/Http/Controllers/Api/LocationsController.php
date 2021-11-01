@@ -25,6 +25,13 @@ class LocationsController extends Controller
     public function index(Request $request)
     {
         $this->authorize('view', Location::class);
+
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
+
         $allowed_columns = [
             'id','name','address','address2','city','state','country','zip','created_at',
             'updated_at','manager_id','image',
@@ -51,9 +58,21 @@ class LocationsController extends Controller
             ->withCount('assets as assets_count')
             ->withCount('users as users_count');
 
-        if ($request->filled('search')) {
+
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $locations = $locations->ByFilter($filter);
+        } elseif ($request->filled('search')) {
             $locations = $locations->TextSearch($request->input('search'));
         }
+
+        /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            62-66  to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $locations = $locations->TextSearch($request->input('search'));
+        }
+        */
+        
 
 
 

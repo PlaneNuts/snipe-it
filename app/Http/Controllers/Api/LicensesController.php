@@ -26,6 +26,13 @@ class LicensesController extends Controller
     public function index(Request $request)
     {
         $this->authorize('view', License::class);
+
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
+
         $licenses = Company::scopeCompanyables(License::with('company', 'manufacturer', 'freeSeats', 'supplier','category')->withCount('freeSeats as free_seats_count'));
 
 
@@ -77,11 +84,19 @@ class LicensesController extends Controller
             $licenses->where('supplier_id','=',$request->input('supplier_id'));
         }
 
-
-        if ($request->filled('search')) {
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $licenses = $licenses->ByFilter($filter);
+        } elseif ($request->filled('search')) {
             $licenses = $licenses->TextSearch($request->input('search'));
         }
 
+       /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            87-91 to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $licenses = $licenses->TextSearch($request->input('search'));
+        }
+        */
 
         // Set the offset to the API call's offset, unless the offset is higher than the actual count of items in which
         // case we override with the actual count, so we should return 0 items.

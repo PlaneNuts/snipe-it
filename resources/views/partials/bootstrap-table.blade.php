@@ -68,6 +68,8 @@
             },
             icons: {
                 advancedSearchIcon: 'fa fa-search-plus',
+                filterControlSwitchHide: 'fa fa-search-plus',
+                filterControlSwitchShow: 'fa fa-search-plus',
                 paginationSwitchDown: 'fa-caret-square-o-down',
                 paginationSwitchUp: 'fa-caret-square-o-up',
                 columns: 'fa-columns',

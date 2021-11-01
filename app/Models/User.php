@@ -5,6 +5,7 @@ use App\Http\Traits\UniqueUndeletedTrait;
 use App\Models\Traits\Searchable;
 use App\Presenters\Presentable;
 use DB;
+use Debugbar;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -635,6 +636,47 @@ class User extends SnipeModel implements AuthenticatableContract, AuthorizableCo
         return $query;
     }
 
+     /**
+     * Query builder scope to search on text filters for complex Bootstrap Tables API
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query  Query builder instance
+     * @param  text   $filter   JSON array of search keys and terms
+     *
+     * @return \Illuminate\Database\Query\Builder          Modified query builder
+     */
+    public function scopeByFilter($query, $filter)
+    {
+        return $query->where(function ($query) use ($filter) {
+            foreach ($filter as $fieldname => $search_val) {
+
+                if ($fieldname == 'location') {
+                    $query->whereHas('location', function ($query) use ($search_val) {
+                        $query->where('locations.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'manager') {
+                    $query->whereHas('manager', function ($query) use ($search_val) {
+                        $query->where('first_name', 'LIKE', '%'.$search_val.'%')
+                              ->orWhere('last_name', 'LIKE', '%'.$search_val.'%')
+                              ->orWhereRaw('CONCAT('.DB::getTablePrefix().'users.first_name," ",'.DB::getTablePrefix().'users.last_name) LIKE ?', ["%$search_val%"]);
+                    });
+                }    
+                elseif ($fieldname == 'company') {
+                    $query->whereHas('company', function ($query) use ($search_val) {
+                        $query->where('companies.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'department') {
+                    $query->whereHas('department', function ($query) use ($search_val) {
+                        $query->where('departments.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                else{
+                $query->where('users.'.$fieldname, 'LIKE', '%' . $search_val . '%');
+                }
+            }
+        });
+    }
 
 
     /**

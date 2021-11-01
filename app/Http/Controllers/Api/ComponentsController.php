@@ -42,13 +42,28 @@ class ComponentsController extends Controller
                 'image',
             ];
 
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
 
         $components = Company::scopeCompanyables(Component::select('components.*')
             ->with('company', 'location', 'category', 'assets'));
 
-        if ($request->filled('search')) {
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $components = $components->ByFilter($filter);
+        } elseif ($request->filled('search')) {
             $components = $components->TextSearch($request->input('search'));
         }
+
+        /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            54-58 to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $components = $components->TextSearch($request->input('search'));
+        }*/
+        
 
         if ($request->filled('company_id')) {
             $components->where('company_id','=',$request->input('company_id'));

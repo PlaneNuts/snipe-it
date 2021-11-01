@@ -21,11 +21,15 @@
         <div class="table-responsive">
 
           <table
+                  data-filter-control-visible="false"
+                  data-filter-control="true"
+                  data-show-filter-control-switch="true"
+                  data-show-search-clear-button="true"
                   data-columns="{{ \App\Presenters\LocationPresenter::dataTableLayout() }}"
                   data-cookie-id-table="locationTable"
                   data-pagination="true"
                   data-id-table="locationTable"
-                  data-search="true"
+                  data-search="false"
                   data-show-footer="true"
                   data-side-pagination="server"
                   data-show-columns="true"

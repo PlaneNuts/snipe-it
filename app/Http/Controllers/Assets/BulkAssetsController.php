@@ -6,6 +6,8 @@ use App\Helpers\Helper;
 use App\Http\Controllers\CheckInOutRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Asset;
+use App\Models\Company;
+use App\Models\Location;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,17 +109,22 @@ class BulkAssetsController extends Controller
                     $this->update_array['purchase_cost'] =  Helper::ParseCurrency($request->input('purchase_cost'));
                 }
 
-                if ($request->filled('company_id')) {
-                    $this->update_array['company_id'] =  $request->input('company_id');
-                    if ($request->input('company_id')=="clear") {
-                        $this->update_array['company_id'] = null;
-                    }
-                }
-
+                //Update the company of an asset when the location is changed
                 if ($request->filled('rtd_location_id')) {
                     $this->update_array['rtd_location_id'] = $request->input('rtd_location_id');
                     if (($request->filled('update_real_loc')) && (($request->input('update_real_loc')) == '1')) {
                         $this->update_array['location_id'] = $request->input('rtd_location_id');
+                    }
+                    $target = Location::find(request('rtd_location_id'));
+                    $this->update_array['company_id'] = (($target) && (isset($target->company_id))) ? $target->company_id: '';
+                }
+                
+                //Moved below rtd_location_id so if the company change is explicitly stated it will overwrite
+                //the last setting of the new company_id (when superuser is making the change)
+                if ($request->filled('company_id')) {
+                    $this->update_array['company_id'] =  $request->input('company_id');
+                    if ($request->input('company_id')=="clear") {
+                        $this->update_array['company_id'] = null;
                     }
                 }
 

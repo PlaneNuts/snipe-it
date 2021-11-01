@@ -27,6 +27,7 @@ class ComponentPresenter extends Presenter
             [
                 "field" => "company",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.company'),
@@ -36,6 +37,7 @@ class ComponentPresenter extends Presenter
             [
                 "field" => "name",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.name'),
                 "visible" => true,
@@ -51,12 +53,14 @@ class ComponentPresenter extends Presenter
             ],[
                 "field" => "serial",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.serial'),
                 "formatter" => "componentsLinkFormatter"
             ], [
                 "field" => "category",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.category'),
                 "formatter" => "categoriesLinkObjFormatter"
@@ -81,18 +85,21 @@ class ComponentPresenter extends Presenter
             ], [
                 "field" => "location",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.location'),
                 "formatter" => "locationsLinkObjFormatter"
             ], [
                 "field" => "order_number",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.order_number'),
                 "visible" => true,
             ],[
                 "field" => "purchase_date",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "title" => trans('general.purchase_date'),
                 "visible" => true,
@@ -100,6 +107,7 @@ class ComponentPresenter extends Presenter
             ],[
                 "field" => "purchase_cost",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.purchase_cost'),
                 "visible" => true,

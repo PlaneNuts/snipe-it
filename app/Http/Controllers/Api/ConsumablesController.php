@@ -44,15 +44,30 @@ class ConsumablesController extends Controller
                 'image',
                 ];
 
+        $filter = array();
+
+        if ($request->filled('filter')) {
+            $filter = json_decode($request->input('filter'), true);
+        }
 
         $consumables = Company::scopeCompanyables(
             Consumable::select('consumables.*')
                 ->with('company', 'location', 'category', 'users', 'manufacturer')
         );
 
-        if ($request->filled('search')) {
-            $consumables = $consumables->TextSearch(e($request->input('search')));
+        if ((!is_null($filter)) && (count($filter)) > 0) {
+            $consumables = $consumables->ByFilter($filter);
+        } elseif ($request->filled('search')) {
+            $consumables = $consumables->TextSearch($request->input('search'));
         }
+
+       /*   (T.Eaton/Nov-01-2021) - This is the original statement before I added lines
+            58-62to shoot over to ByFilter if the per column search fields are set
+
+            if ($request->filled('search')) {
+            $consumables = $consumables->TextSearch(e($request->input('search')));
+            }
+        */
 
         if ($request->filled('company_id')) {
             $consumables->where('company_id','=',$request->input('company_id'));

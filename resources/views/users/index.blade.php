@@ -61,12 +61,16 @@
 
 
             <table
+                    data-filter-control-visible="false"
+                    data-filter-control="true"
+                    data-show-filter-control-switch="true"
+                    data-show-search-clear-button="true"
                     data-click-to-select="true"
                     data-columns="{{ \App\Presenters\UserPresenter::dataTableLayout() }}"
                     data-cookie-id-table="usersTable"
                     data-pagination="true"
                     data-id-table="usersTable"
-                    data-search="true"
+                    data-search="false"
                     data-side-pagination="server"
                     data-show-columns="true"
                     data-show-export="true"

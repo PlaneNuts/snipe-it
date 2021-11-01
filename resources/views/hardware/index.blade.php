@@ -87,13 +87,17 @@
               @endif
 
               <table
-                data-advanced-search="true"
+                data-filter-control-visible="false"
+                data-filter-control="true"
+                data-show-filter-control-switch="true"
+                data-show-search-clear-button="true"
+                data-advanced-search="false"
                 data-click-to-select="true"
                 data-columns="{{ \App\Presenters\AssetPresenter::dataTableLayout() }}"
                 data-cookie-id-table="assetsListingTable"
                 data-pagination="true"
                 data-id-table="assetsListingTable"
-                data-search="true"
+                data-search="false"
                 data-side-pagination="server"
                 data-show-columns="true"
                 data-show-export="true"

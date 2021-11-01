@@ -391,4 +391,49 @@ class Accessory extends SnipeModel
     {
         return $query->leftJoin('suppliers', 'accessories.supplier_id', '=', 'suppliers.id')->orderBy('suppliers.name', $order);
     }
+
+    /**
+     * Query builder scope to search on text filters for complex Bootstrap Tables API
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query  Query builder instance
+     * @param  text   $filter   JSON array of search keys and terms
+     *
+     * @return \Illuminate\Database\Query\Builder          Modified query builder
+     */
+    public function scopeByFilter($query, $filter)
+    {
+        return $query->where(function ($query) use ($filter) {
+            foreach ($filter as $fieldname => $search_val) {
+
+                if ($fieldname == 'location') {
+                    $query->whereHas('location', function ($query) use ($search_val) {
+                        $query->where('locations.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'company') {
+                    $query->whereHas('company', function ($query) use ($search_val) {
+                        $query->where('companies.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'manufacturer') {
+                    $query->whereHas('manufacturer', function ($query) use ($search_val) {
+                        $query->where('manufacturers.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                elseif ($fieldname == 'category') {
+                    $query->whereHas('category', function ($query) use ($search_val) {
+                        $query->where('categories.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }  
+                elseif ($fieldname == 'supplier') {
+                    $query->whereHas('supplier', function ($query) use ($search_val) {
+                        $query->where('suppliers.name', 'LIKE', '%' . $search_val . '%');
+                    });
+                }
+                else{
+                $query->where('accessories.'.$fieldname, 'LIKE', '%' . $search_val . '%');
+                }
+            }
+        });
+    }
 }

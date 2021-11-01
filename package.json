@@ -7,7 +7,7 @@
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "engines": {
     "node": ">=0.12"
@@ -48,7 +48,6 @@
     "less-loader": "^4.1.0",
     "list.js": "^1.5.0",
     "papaparse": "^4.3.3",
-    "phantomjs": "^2.1.7",
     "select2": "4.0.13",
     "sheetjs": "^2.0.0",
     "tableexport.jquery.plugin": "^1.10.26",

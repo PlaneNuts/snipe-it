@@ -25,6 +25,7 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "company",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/companies/table.title'),
@@ -33,34 +34,40 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "name",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/licenses/table.title'),
                 "formatter" => "licensesLinkFormatter"
             ], [
                 "field" => "product_key",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/licenses/form.license_key'),
                 "formatter" => "licensesLinkFormatter"
             ], [
                 "field" => "expiration_date",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "title" => trans('admin/licenses/form.expiration'),
                 'formatter' => 'dateDisplayFormatter'
             ], [
                 "field" => "license_email",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/licenses/form.to_email')
             ], [
                 "field" => "license_name",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/licenses/form.to_name'),
             ], [
                 "field" => "category",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.category'),
@@ -69,6 +76,7 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "supplier",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.supplier'),
@@ -77,6 +85,7 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "manufacturer",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.manufacturer'),
                 "formatter" => "manufacturersLinkObjFormatter",
@@ -93,6 +102,7 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "purchase_date",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.purchase_date'),
@@ -101,6 +111,7 @@ class LicensePresenter extends Presenter
             [
                 "field" => "termination_date",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('admin/licenses/form.termination_date'),
@@ -109,6 +120,7 @@ class LicensePresenter extends Presenter
             [
                 "field" => "depreciation",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/hardware/form.depreciation'),
@@ -134,6 +146,7 @@ class LicensePresenter extends Presenter
             [
                 "field" => "purchase_cost",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.purchase_cost'),
@@ -141,18 +154,21 @@ class LicensePresenter extends Presenter
             ], [
                 "field" => "purchase_order",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('admin/licenses/form.purchase_order'),
             ], [
                 "field" => "order_number",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.order_number'),
             ], [
                 "field" => "notes",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.notes'),

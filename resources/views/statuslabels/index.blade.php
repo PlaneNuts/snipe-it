@@ -26,10 +26,14 @@
         <div class="table-responsive">
 
             <table
+                    data-filter-control-visible="false"
+                    data-filter-control="true"
+                    data-show-filter-control-switch="true"
+                    data-show-search-clear-button="true"
                     data-cookie-id-table="statuslabelsTable"
                     data-pagination="true"
                     data-id-table="statuslabelsTable"
-                    data-search="true"
+                    data-search="false"
                     data-show-footer="false"
                     data-side-pagination="server"
                     data-show-columns="true"

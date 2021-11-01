@@ -19,12 +19,16 @@
     <div class="box box-default">
       <div class="box-body">
         <table
+                data-filter-control-visible="false"
+                data-filter-control="true"
+                data-show-filter-control-switch="true"
+                data-show-search-clear-button="true"
                 data-columns="{{ \App\Presenters\ComponentPresenter::dataTableLayout() }}"
                 data-cookie-id-table="componentsTable"
                 data-toolbar="#toolbar"
                 data-pagination="true"
                 data-id-table="componentsTable"
-                data-search="true"
+                data-search="false"
                 data-side-pagination="server"
                 data-show-columns="true"
                 data-show-export="true"

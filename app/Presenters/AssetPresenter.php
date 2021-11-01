@@ -31,6 +31,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "company",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.company'),
@@ -39,6 +40,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "name",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.name'),
                 "visible" => true,
@@ -54,6 +56,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "asset_tag",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/table.asset_tag'),
                 "visible" => true,
@@ -61,6 +64,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "serial",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.serial'),
                 "visible" => true,
@@ -68,6 +72,7 @@ class AssetPresenter extends Presenter
             ],  [
                 "field" => "model",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.model'),
                 "visible" => true,
@@ -75,12 +80,14 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "model_number",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/models/table.modelnumber'),
                 "visible" => false
             ], [
                 "field" => "category",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.category'),
                 "visible" => true,
@@ -88,6 +95,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "status_label",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/table.status'),
                 "visible" => true,
@@ -95,6 +103,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "assigned_to",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.checkedout_to'),
                 "visible" => true,
@@ -109,6 +118,7 @@ class AssetPresenter extends Presenter
             ],[
                 "field" => "location",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/table.location'),
                 "visible" => true,
@@ -116,6 +126,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "rtd_location",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('admin/hardware/form.default_location'),
                 "visible" => false,
@@ -123,6 +134,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "manufacturer",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.manufacturer'),
                 "visible" => false,
@@ -130,6 +142,7 @@ class AssetPresenter extends Presenter
             ],[
                 "field" => "supplier",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.supplier'),
                 "visible" => false,
@@ -137,6 +150,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "purchase_date",
                 "searchable" => true,
+                "filterControl" => "datepicker",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.purchase_date'),
@@ -144,12 +158,14 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "purchase_cost",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "title" => trans('general.purchase_cost'),
                 "footerFormatter" => 'sumFormatter',
             ], [
                 "field" => "order_number",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.order_number'),
@@ -164,6 +180,7 @@ class AssetPresenter extends Presenter
             ], [
                 "field" => "warranty_months",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('admin/hardware/form.warranty')
@@ -177,6 +194,7 @@ class AssetPresenter extends Presenter
             ],[
                 "field" => "notes",
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "visible" => false,
                 "title" => trans('general.notes'),
@@ -266,6 +284,7 @@ class AssetPresenter extends Presenter
             $layout[] = [
                 "field" => 'custom_fields.'.$field->convertUnicodeDbSlug(),
                 "searchable" => true,
+                "filterControl" => "input",
                 "sortable" => true,
                 "switchable" => true,
                 "title" => $field->name,
