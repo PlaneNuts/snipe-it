@@ -48,4 +48,11 @@ class CheckoutRequest extends Model
         return $this->itemRequested()->name;
 
     }
+    public function cancel()
+    {
+        $this->user_id = null;
+        $this->canceled_at = \Carbon\Carbon::now();
+        $this->deleted_at = \Carbon\Carbon::now();   
+        $this->save();
+    }
 }

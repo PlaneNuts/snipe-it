@@ -124,6 +124,13 @@ return array(
             'display'    => true,
         ),
 
+        array(
+            'permission' => 'assets.edit.requested',
+            'label'      => 'Manage Requested Assets',
+            'note'       => '',
+            'display'    => true,
+        ),
+
     ),
 
     'Accessories' => array(
@@ -163,6 +170,12 @@ return array(
             'note'       => '',
             'display'    => true,
         ),
+        array(
+            'permission' => 'accessories.edit.requested',
+            'label'      => 'Manage Requested Accessories',
+            'note'       => '',
+            'display'    => true,
+        ),
     ),
 
     'Consumables' => array(
@@ -193,6 +206,12 @@ return array(
         array(
             'permission' => 'consumables.checkout',
             'label'      => 'Checkout ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'consumables.edit.requested',
+            'label'      => 'Manage Requested Consumables',
             'note'       => '',
             'display'    => true,
         ),
@@ -242,6 +261,12 @@ return array(
             'note'       => '',
             'display'    => true,
         ),
+        array(
+            'permission' => 'licenses.edit.requested',
+            'label'      => 'Manage Requested License Keys',
+            'note'       => '',
+            'display'    => true,
+        ),
     ),
 
 
@@ -279,6 +304,12 @@ return array(
         array(
             'permission' => 'components.checkin',
             'label'      => 'Checkin ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'components.edit.requested',
+            'label'      => 'Manage Requested Components',
             'note'       => '',
             'display'    => true,
         ),
@@ -371,6 +402,18 @@ return array(
         array(
             'permission' => 'models.delete',
             'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'models.view.requestable',
+            'label'      => 'View Requestable Models',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'models.edit.requested',
+            'label'      => 'Manage Requested Models',
             'note'       => '',
             'display'    => true,
         ),

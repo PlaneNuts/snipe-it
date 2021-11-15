@@ -53,6 +53,9 @@
                         <th class="col-md-2">Requested Date</th>
                         <th class="col-md-1"></th>
                         <th class="col-md-1"></th>
+                        @can('cancel', \App\Models\Asset::class)
+                        <th class="col-md-1"></th>
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -114,7 +117,12 @@
 
                                 @endif
                             </td>
-
+                            
+                            @can('cancel', \App\Models\Asset::class)
+                            <td>
+                                 <a href="{{ url('/') }}/hardware/{{ $request->id }}/cancel" class="btn btn-sm btn-danger" data-tooltip="true" title="Check this item out to a user">Cancel</a>
+                            </td>
+                            @endcan
 
                     </tr>
                     @endif

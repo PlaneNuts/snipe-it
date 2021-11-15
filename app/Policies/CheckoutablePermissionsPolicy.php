@@ -28,6 +28,17 @@ abstract class CheckoutablePermissionsPolicy extends SnipePermissionsPolicy
         return $user->hasAccess($this->columnName().'.checkin');
     }
 
+    /**
+     * Determine whether the user can cancel request for this item.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function cancel(User $user, $item = null)
+    {
+        return $user->hasAccess($this->columnName().'.edit.requested');
+    }
+
      /**
      * Determine whether the user can manage the accessory.
      *
@@ -38,6 +49,8 @@ abstract class CheckoutablePermissionsPolicy extends SnipePermissionsPolicy
     {
         return $user->hasAccess($this->columnName().'.checkin')
              || $user->hasAccess($this->columnName().'.edit')
-             || $user->hasAccess($this->columnName().'.checkout');
+             || $user->hasAccess($this->columnName().'.checkout')
+             || $user->hasAccess($this->columnName().'.checkout')
+             || $user->hasAccess($this->columnName().'.edit.requested');
     }
 }

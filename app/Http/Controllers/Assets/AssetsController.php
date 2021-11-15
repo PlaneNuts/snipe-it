@@ -863,4 +863,17 @@ class AssetsController extends Controller
         return view('hardware/requested', compact('requestedItems'));
     }
 
+    public function cancelRequested($id)
+    {
+        $this->authorize('cancel');
+
+        if (is_null($item = CheckoutRequest::find($id))) {
+            return redirect()->to("hardware/requested")->with('error', trans('admin/hardware/message.cancel.error'));
+        }
+
+        $item->cancel();
+
+        return redirect()->to("hardware/requested")->with('success', trans('admin/hardware/message.cancel.success'));
+    }
+
 }

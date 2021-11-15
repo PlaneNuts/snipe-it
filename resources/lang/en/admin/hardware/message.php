@@ -73,6 +73,14 @@ return array(
         'already_checked_in'  => 'That asset is already checked in.',
 
     ),
+    
+    'cancel' => array(
+        'error'   		=> 'Request was not canceled, please try again',
+        'success' 		=> 'Request successfully canceled.',
+        'user_does_not_exist' => 'That user is invalid. Please try again.',
+        'already_checked_in'  => 'That asset is already checked in.',
+
+    ),
 
     'requests' => array(
         'error'   		=> 'Asset was not requested, please try again',

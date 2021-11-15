@@ -183,6 +183,12 @@ Route::group(
             'uses' => 'Assets\BulkAssetsController@storeCheckout'
         ]);
 
+         # Cancel hardware request
+         Route::get('{id}/cancel', [
+            'as' => 'hardware/cancel',
+            'uses' => 'Assets\AssetsController@cancelRequested'
+        ]);
+
 
 
 
