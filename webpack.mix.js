@@ -125,13 +125,14 @@ mix
             './node_modules/bootstrap-table/dist/extensions/export/bootstrap-table-export.js',
             './resources/assets/js/extensions/jquery.base64.js',
             './node_modules/tableexport.jquery.plugin/tableExport.min.js',
-            './node_modules/tableexport.jquery.plugin/libs/jsPDF/jspdf.umd.min.js',
+            './node_modules/tableexport.jquery.plugin/libs/jsPDF/jspdf.min.js',
             './resources/assets/js/FileSaver.min.js',
             './node_modules/xlsx/dist/xlsx.core.min.js',
-            './node_modules/bootstrap-table/dist/extensions/sticky-header/bootstrap-table-sticky-header.js',
-            './node_modules/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.js',
+            './node_modules/bootstrap-table/dist/extensions/cookie/bootstrap-table-cookie.js',
             './node_modules/bootstrap-table/dist/extensions/toolbar/bootstrap-table-toolbar.js',
-            //'./node_modules/bootstrap-table/dist/extensions/cookie/bootstrap-table-cookie.js'
+            './node_modules/bootstrap-table/dist/extensions/sticky-header/bootstrap-table-sticky-header.js',
+            './node_modules/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.js'
+            
         ],
         'public/js/dist/bootstrap-table.js'
  ).version();
